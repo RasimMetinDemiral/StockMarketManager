@@ -1,0 +1,5 @@
+"user_id";"name";"surname";"email";"usertype";"username";"password";"enabled"
+1;"ali";"veli";"aa@gmail.com";"USER";"ali";"$2a$10$6fUUP/hjPKVnQSExoUl27ei/sXdYfRk7v0ZBRS1aOEkIOKRWjqDV6";1
+2;"admin";"adminn";"admin@gmail";"ADMIN";"admin";"$2a$10$ngTyMqwBZ/8DMm96qWho2eVcvEaDkR/4nnPXuUts1W3FylbSwKf5a";1
+3;"alex";"desouza";"alex@hotmail.com";"USER";"alex";"$2a$10$DF6FL7COP5sRbiO0zcJMOOzBd8PDN0waOE2cWmA0UA5eW6MqiP9TC";1
+23;"rmetin";"demiral";"metindemiral@hotmail.com";"USER";"metin";"$2a$10$hKjrkGwbbXzg.L5SpF7eX.DyM1hCpUvTyfpjsNpemLC.edfoMVP8a";1
