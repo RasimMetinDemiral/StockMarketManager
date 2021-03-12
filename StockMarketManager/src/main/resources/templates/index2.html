@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Stock Management Page</title>
+</head>
+<body>
+
+	<div align="center">
+
+		<h1>Stock Market Manager</h1>
+		<a sec:authorize="hasAnyAuthority('ADMIN')" href="newStock">
+			Create New Stock </a> <a href="NewStockPurchase"> User Stock
+			Management Page </a> <br />
+		<br />
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th sec:authorize="hasAnyAuthority('ADMIN')">Stock ID</th>
+					<th>Code</th>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Date</th>
+					<th sec:authorize="hasAnyAuthority('ADMIN')">Actions</th>
+
+
+
+
+				</tr>
+			</thead>
+			<tbody>
+
+
+				<tr th:each="adminhisse : ${listHisse}">
+					<td sec:authorize="hasAnyAuthority('ADMIN')"
+						th:text="${adminhisse.id}">User ID</td>
+					<td th:text="${adminhisse.code}">Name</td>
+					<td th:text="${adminhisse.name}">Name</td>
+					<td th:text="${adminhisse.price}">E-Mail</td>
+					<td th:text="${adminhisse.date}">Date</td>
+
+
+
+					<td sec:authorize="hasAnyAuthority('ADMIN')"><a
+						sec:authorize="hasAnyAuthority('ADMIN')"
+						th:href="@{'/editstock/'+ ${adminhisse.id}}">Edit</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; 
+					<a
+						sec:authorize="hasAnyAuthority('ADMIN')"
+						th:href="@{'/deletestock/'+ ${adminhisse.id}}">Delete</a></td>
+
+
+
+
+				</tr>
+
+			</tbody>
+		</table>
+
+
+
+
+
+
+
+
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit Stock</title>
+</head>
+<body>
+	<div align="center">
+
+		<h1>Edit Stock</h1>
+		<br />
+		<form action="#" th:action="@{/saveStock}" th:object="${adminhisse}"
+			method="post">
+			<!-- verileri ekledikten sonra save etmek için kullandım-->
+
+
+
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Stock ID:</td>
+					<td><input type="text" th:field="*{id}" readonly="readonly" /></td>
+					<!-- input almak çin kullandım -->
+				</tr>
+
+				<tr>
+					<td>Code:</td>
+					<td><input type="text" th:field="*{code}" /></td>
+					<!-- input almak çin kullandım -->
+				</tr>
+
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" th:field="*{name}" /></td>
+					<!-- input almak çin kullandım -->
+				</tr>
+
+				<tr>
+					<td>Price:</td>
+					<td><input type="text" th:field="*{price}" /></td>
+				</tr>
+
+				<tr>
+					<td>Date:</td>
+					<td><input type="text" th:field="*{date}" readonly="readonly" /></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><button type="submit">Save</button></td>
+				</tr>
+
+			</table>
+
+
+		</form>
+	</div>
+</body>
+</html>

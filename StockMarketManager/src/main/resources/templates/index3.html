@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Purchase and Sale</title>
+</head>
+<body>
+	<div align="center">
+
+		<h1>Stock Purchase-Sale Management</h1>
+		<a href="newhisseAlim"> New Stock Purchase </a> <br /> <br />
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th sec:authorize="hasAnyAuthority('ADMIN')">Stock ID</th>
+					<th>Code</th>
+					<th>Name</th>
+					<th>Amount</th>
+					<th>Total Price</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+
+			<tbody>
+
+
+				<tr th:each="userhisse : ${alimsatimlist}">
+
+					<td sec:authorize="hasAnyAuthority('ADMIN')"
+						th:text="${userhisse.id}">Stock ID</td>
+					<td th:text="${userhisse.code}">Code</td>
+					<td th:text="${userhisse.name}">Name</td>
+					<td th:text="${userhisse.amount}">Amount</td>
+					<td th:text="${userhisse.totalprice}">Total Price</td>
+
+					<td><a th:href="@{'/deletehisse/'+ ${userhisse.id}}">
+							Stock Sale </a></td>
+
+				</tr>
+
+			</tbody>
+		</table>
+
+	</div>
+
+
+
+
+</body>
+</html>

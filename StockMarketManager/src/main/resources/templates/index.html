@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<!-- login page için sonradan eklenecek -->
+<head>
+<meta charset="UTF-8">
+<title>Stock Market Manager</title>
+
+
+
+</head>
+
+
+<body>
+
+
+
+
+
+
+	<div align="center">
+
+
+
+		<div sec:authorize="isAuthenticated()">
+			Welcome <b> <span sec:authentication="name">Username</span></b>
+			&nbsp; <!--  <span sec:authentication="principal.authorities">Roles</span>-->
+
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Logout" />
+			</form>
+
+
+		</div>
+
+
+
+
+
+
+
+		<h1>Stock Market Manager</h1>
+
+
+		<a sec:authorize="hasAnyAuthority('ADMIN')" href="new"> Create New
+			Account </a> <a href="list"> Stock Management Page </a> <br /> <br />
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th sec:authorize="hasAnyAuthority('ADMIN')">User ID</th>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>E-Mail</th>
+					<th>User Type</th>
+					<th>User Name</th>
+					<th sec:authorize="hasAnyAuthority('ADMIN')">Password</th>
+					<th sec:authorize="hasAnyAuthority('ADMIN')">Actions</th>
+					<!-- ÖNEMLİİİİİİİİ -->
+
+
+
+
+
+
+
+				</tr>
+			</thead>
+			<tbody>
+
+				<!-- "users : ${listAccounts} ve "hisse : ${listHisse} gibi olacak ki tıklandığında ekrana gelsin-->
+				<tr th:each="users : ${listUsers}">
+					<td sec:authorize="hasAnyAuthority('ADMIN')"
+						th:text="${users.user_id}">User ID</td>
+					<td th:text="${users.name}">Name</td>
+					<td th:text="${users.surname}">Surname</td>
+					<td th:text="${users.email}">E-Mail</td>
+					<td th:text="${users.usertype}">User Type</td>
+					<td th:text="${users.username}">User Name</td>
+					<td sec:authorize="hasAnyAuthority('ADMIN')"
+						th:text="${users.password}">Password</td>
+					<td sec:authorize="hasAnyAuthority('ADMIN')"><a
+						sec:authorize="hasAnyAuthority('ADMIN')"
+						th:href="@{'/edit/'+ ${users.user_id}}">Edit</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a
+						sec:authorize="hasAnyAuthority('ADMIN')"
+						th:href="@{'/delete/'+ ${users.user_id}}">Delete</a></td>
+
+
+
+
+				</tr>
+
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>
