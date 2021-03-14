@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="UTF-8">
 <title>Purchase and Sale</title>
 </head>
 <body>
 	<div align="center">
-
+		
+		<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Logout" />
+			</form>
+		
+		
+		
 		<h1>Stock Purchase-Sale Management</h1>
-		<a href="newhisseAlim"> New Stock Purchase </a> <br /> <br />
+		<a sec:authorize="hasAnyAuthority('USER')" href="newhisseAlim"> New Stock Purchase </a> <br /> <br />
 		<table border="1" cellpadding="10">
 			<thead>
 				<tr>
@@ -17,7 +24,7 @@
 					<th>Name</th>
 					<th>Amount</th>
 					<th>Total Price</th>
-					<th>Actions</th>
+					<th sec:authorize="hasAnyAuthority('USER')" >Actions</th>
 				</tr>
 			</thead>
 
@@ -33,7 +40,7 @@
 					<td th:text="${userhisse.amount}">Amount</td>
 					<td th:text="${userhisse.totalprice}">Total Price</td>
 
-					<td><a th:href="@{'/deletehisse/'+ ${userhisse.id}}">
+					<td sec:authorize="hasAnyAuthority('USER')" ><a  th:href="@{'/deletehisse/'+ ${userhisse.id}}">
 							Stock Sale </a></td>
 
 				</tr>

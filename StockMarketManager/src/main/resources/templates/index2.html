@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="UTF-8">
 <title>Stock Management Page</title>
@@ -7,7 +8,12 @@
 <body>
 
 	<div align="center">
-
+		
+		<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Logout" />
+			</form>
+		
+		
 		<h1>Stock Market Manager</h1>
 		<a sec:authorize="hasAnyAuthority('ADMIN')" href="newStock">
 			Create New Stock </a> <a href="NewStockPurchase"> User Stock
