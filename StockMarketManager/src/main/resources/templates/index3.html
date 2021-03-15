@@ -15,7 +15,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 		
 		
 		<h1>Stock Purchase-Sale Management</h1>
-		<a sec:authorize="hasAnyAuthority('USER')" href="newhisseAlim"> New Stock Purchase </a> <br /> <br />
+		<a href="newhisseAlim"> New Stock Purchase </a> <br /> <br />
 		<table border="1" cellpadding="10">
 			<thead>
 				<tr>
@@ -24,7 +24,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 					<th>Name</th>
 					<th>Amount</th>
 					<th>Total Price</th>
-					<th sec:authorize="hasAnyAuthority('USER')" >Actions</th>
+					<th >Actions</th>
 				</tr>
 			</thead>
 
@@ -40,7 +40,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 					<td th:text="${userhisse.amount}">Amount</td>
 					<td th:text="${userhisse.totalprice}">Total Price</td>
 
-					<td sec:authorize="hasAnyAuthority('USER')" ><a  th:href="@{'/deletehisse/'+ ${userhisse.id}}">
+					<td ><a  th:href="@{'/deletehisse/'+ ${userhisse.id}}">
 							Stock Sale </a></td>
 
 				</tr>
