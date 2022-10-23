@@ -24,7 +24,7 @@ public class AdminHisseController {
 	@Autowired
 	private AdminhisseService service2;
 	
-//admin hisse servisleri	
+	//admin hisse servisleri
 	
 	@RequestMapping("/list") 
 	public String viewHomePage1(Model model1) {
